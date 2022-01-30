@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
-function App() {
+import { ReactComponent as BlobSvg } from "./assets/img/blob.svg";
+import { ReactComponent as MainLogoSvg } from "./assets/img/main-logo.svg";
+import { ReactComponent as SunSvg } from "./assets/img/sun.svg";
+import { ReactComponent as RainSvg } from "./assets/img/rain.svg";
+import { ReactComponent as SmallRainSvg } from "./assets/img/small-rain.svg";
+import { ReactComponent as SmallRainSunSvg } from "./assets/img/small-rain-sun.svg";
+import { ReactComponent as MainlyCloudySvg } from "./assets/img/mainly-cloudy.svg";
+
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BlobSvg />
+      <MainLogoSvg />
+      <SunSvg />
+      <MainlyCloudySvg />
+      <SmallRainSvg />
+      <SmallRainSunSvg />
+      <RainSvg />
     </div>
   );
-}
+};
 
 export default App;
