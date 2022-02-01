@@ -7,6 +7,7 @@ import { ReactComponent as BlobSvg } from "../../assets/img/blob.svg";
 import CustomSelect from "./CustomSelect";
 
 const StyledHeader = styled(Flex)`
+  margin-bottom: 30px;
   span {
     text-transform: uppercase;
     color: #4793ff;
