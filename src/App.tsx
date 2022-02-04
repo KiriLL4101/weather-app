@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Days from "./components/Days";
 
 import DetailsToday from "./components/DetailsToday";
 import Header from "./components/Header";
@@ -27,6 +28,7 @@ const App: React.FC = () => {
         <TodayCard />
         <DetailsToday />
       </Flex>
+      <Days />
     </StyledContainer>
   );
 };

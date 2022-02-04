@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { createGlobalStyle } from "styled-components";
+import ts from "typescript";
 
 import App from "./App";
 
