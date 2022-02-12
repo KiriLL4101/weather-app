@@ -6,7 +6,7 @@ import DaysItem from "./DaysItem";
 import Filters from "./Filters";
 
 const StyledWrapper = styled(Flex)`
-  background: #ffffff;
+  background: ${(props) => props.theme.bgCard};
   box-shadow: 2px 5px 25px -3px rgba(180, 180, 180, 0.25);
   border-radius: 0px 0px 20px 20px;
   width: 100%;
@@ -18,6 +18,7 @@ const Days: React.FC = () => {
     <>
       <Filters />
       <StyledWrapper justify="space-between">
+        <DaysItem />
         <DaysItem />
         <DaysItem />
         <DaysItem />

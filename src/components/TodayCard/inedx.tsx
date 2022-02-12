@@ -7,7 +7,7 @@ import Flex from "../helpers/Flex";
 const StyledWrapper = styled.div`
   width: 400px;
   height: 300px;
-  background: #fff;
+  background: ${(props) => props.theme.bgCard};
   box-shadow: 2px 5px 25px -3px rgba(180, 180, 180, 0.25);
   border-radius: 20px;
   padding: 20px;
@@ -16,6 +16,11 @@ const StyledWrapper = styled.div`
     font: normal 25px Montserrat;
     line-height: 30px;
     color: #939cb0;
+  }
+
+  .time,
+  .citi {
+    color: ${(props) => props.theme.colorGrey};
   }
 `;
 
@@ -33,7 +38,7 @@ const StyledTemp = styled(Flex)`
     &:last-child {
       font: normal 40px Montserrat;
       line-height: 49px;
-      color: #000;
+      color: ${(props) => props.theme.colorFont};
     }
   }
 `;

@@ -7,7 +7,7 @@ import { ReactComponent as WindSvg } from "../../assets/img/wind.svg";
 import { ReactComponent as PressureSvg } from "../../assets/img/pressure.svg";
 import { ReactComponent as PrecipitationSvg } from "../../assets/img/precipitation.svg";
 import Cloud from "../../assets/img/Cloud.png";
-// process.env.PUBLIC_URL
+
 const StyledWrapper = styled(Flex)`
   width: 750px;
   height: 300px;
@@ -16,7 +16,7 @@ const StyledWrapper = styled(Flex)`
   position: relative;
   overflow: hidden;
 
-  background: #fff;
+  background: ${(props) => props.theme.bgCard};
   box-shadow: 2px 5px 25px -3px rgba(180, 180, 180, 0.25);
   border-radius: 20px;
 
@@ -36,6 +36,10 @@ const StyledWrapper = styled(Flex)`
   .name {
     margin-right: 20px;
     color: #939cb0;
+  }
+
+  .description {
+    color: ${(props) => props.theme.colorFont};
   }
 `;
 
@@ -58,28 +62,28 @@ const DetailsToday: React.FC = () => {
           <TempSvg />
         </StyledWrapSvg>
         <span className="name">Температура</span>
-        <span>20° - ощущается как 17°</span>
+        <span className="description">20° - ощущается как 17°</span>
       </Flex>
       <Flex align="center">
         <StyledWrapSvg>
           <PressureSvg />
         </StyledWrapSvg>
         <span className="name">Давление </span>
-        <span>765 мм ртутного столба - нормальное</span>
+        <span className="description">765 мм ртутного столба - нормальное</span>
       </Flex>
       <Flex align="center">
         <StyledWrapSvg>
           <PrecipitationSvg />
         </StyledWrapSvg>
         <span className="name">Осадки</span>
-        <span>Без осадков</span>
+        <span className="description">Без осадков</span>
       </Flex>
       <Flex align="center">
         <StyledWrapSvg>
           <WindSvg />
         </StyledWrapSvg>
         <span className="name">Ветер</span>
-        <span>3 м/с юго-запад - легкий ветер</span>
+        <span className="description">3 м/с юго-запад - легкий ветер</span>
       </Flex>
     </StyledWrapper>
   );

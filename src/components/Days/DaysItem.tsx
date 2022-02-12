@@ -6,15 +6,14 @@ import { ReactComponent as RainSvg } from "../../assets/img/rain.svg";
 
 const StyledCard = styled(Flex)`
   width: 150px;
-  height: 200px;
-  background: rgba(71, 147, 255, 0.2);
+  background: ${(props) => props.theme.bgDay};
   border-radius: 10px;
   padding: 11px;
 
   .day {
     font: 500 18px Montserrat;
     line-height: 22px;
-    color: #000;
+    color: ${(props) => props.theme.colorFont};
     margin-bottom: 7px;
   }
 
@@ -28,7 +27,7 @@ const StyledCard = styled(Flex)`
   .temp {
     font: 500 18px Montserrat;
     line-height: 22px;
-    color: #000;
+    color: ${(props) => props.theme.colorFont};
   }
 
   .night {
