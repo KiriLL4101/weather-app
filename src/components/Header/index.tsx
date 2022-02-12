@@ -5,6 +5,8 @@ import Select from "react-select";
 import Flex from "../helpers/Flex";
 import { ReactComponent as MainLogoSvg } from "../../assets/img/main-logo.svg";
 import { ReactComponent as BlobSvg } from "../../assets/img/blob.svg";
+import { useAppDispatch } from "../../hooks/redux";
+import { selectCitiWeather } from "../../store/actions/currentWeather";
 
 const StyledHeader = styled(Flex)`
   margin-bottom: 30px;
@@ -27,9 +29,12 @@ const StyledHeader = styled(Flex)`
 `;
 
 const options = [
-  { value: "chocolate", label: "Chocolate" },
-  { value: "strawberry", label: "Strawberry" },
-  { value: "vanilla", label: "Vanilla" },
+  { label: "Москва", value: "Moscow" },
+  { label: "Рязань", value: "Ryazan" },
+  { label: "Казань", value: "Kazan" },
+  { label: "Пермь", value: "Perm" },
+  { label: "Сочи", value: "Sochi" },
+  { label: "Хабаровск", value: "Khabarovsk" },
 ];
 
 const colourStyles = {
@@ -49,13 +54,24 @@ const colourStyles = {
 };
 
 const Header: React.FC<{ onChangeTheme: () => void }> = ({ onChangeTheme }) => {
+  const dispatch = useAppDispatch();
+
+  const onSelectedCiti = ({ value }: any) => {
+    dispatch(selectCitiWeather(value));
+  };
+
   return (
     <StyledHeader align="center">
       <MainLogoSvg />
       <span>React weather</span>
       <div className="space" />
       <BlobSvg onClick={onChangeTheme} />
-      <Select options={options} styles={colourStyles} />
+      <Select
+        options={options}
+        styles={colourStyles}
+        onChange={onSelectedCiti}
+        defaultValue={{ label: "Москва", value: "Moscow" }}
+      />
     </StyledHeader>
   );
 };

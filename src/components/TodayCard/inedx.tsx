@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { ReactComponent as SunSvg } from "../../assets/img/sun.svg";
+import { useAppSelector } from "../../hooks/redux";
 import Flex from "../helpers/Flex";
 
 const StyledWrapper = styled.div`
@@ -44,18 +45,24 @@ const StyledTemp = styled(Flex)`
 `;
 
 const TodayCard: React.FC = () => {
+  const curreantWeather = useAppSelector(
+    ({ currentWeather: { weather } }) => weather
+  );
+
   return (
     <StyledWrapper>
       <StyledTemp>
         <div>
-          <span>20&deg;</span>
+          <span>{curreantWeather?.main?.temp.toFixed()}&deg;</span>
           <br />
           <span>Сегодня</span>
         </div>
         <SunSvg />
       </StyledTemp>
-      <div className="time">Время: 21:54</div>
-      <div className="citi">Город: Санкт-Петербург</div>
+      <div className="time">
+        Время: {new Date().getHours() + ":" + new Date().getMinutes()}
+      </div>
+      <div className="citi">Город: {curreantWeather?.name}</div>
     </StyledWrapper>
   );
 };

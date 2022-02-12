@@ -8,7 +8,7 @@ import Flex from "./components/helpers/Flex";
 import TodayCard from "./components/TodayCard/inedx";
 
 import { useAppDispatch } from "./hooks/redux";
-import { onLoadWeather } from "./store/actions/weather";
+import { fetchCurrentWeather } from "./store/actions/currentWeather";
 
 const StyledContainer = styled.div`
   max-width: 1200px;
@@ -40,12 +40,12 @@ const themeLight = {
 
 const App: React.FC = () => {
   const dispatch = useAppDispatch();
-  const [toggleTheme, setToggleTheme] = useState<boolean>(false);
+  const [toggleTheme, setToggleTheme] = useState<boolean>(true);
 
   const onChangeTheme = () => setToggleTheme((prev) => !prev);
 
   React.useEffect(() => {
-    dispatch(onLoadWeather());
+    dispatch(fetchCurrentWeather());
   }, []);
 
   return (

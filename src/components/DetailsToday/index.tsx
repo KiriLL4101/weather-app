@@ -7,6 +7,7 @@ import { ReactComponent as WindSvg } from "../../assets/img/wind.svg";
 import { ReactComponent as PressureSvg } from "../../assets/img/pressure.svg";
 import { ReactComponent as PrecipitationSvg } from "../../assets/img/precipitation.svg";
 import Cloud from "../../assets/img/Cloud.png";
+import { useAppSelector } from "../../hooks/redux";
 
 const StyledWrapper = styled(Flex)`
   width: 750px;
@@ -55,6 +56,10 @@ const StyledWrapSvg = styled.div`
 `;
 
 const DetailsToday: React.FC = () => {
+  const curreantWeather = useAppSelector(
+    ({ currentWeather: { weather } }) => weather
+  );
+
   return (
     <StyledWrapper direction="column" justify="space-between">
       <Flex align="center">
@@ -62,14 +67,17 @@ const DetailsToday: React.FC = () => {
           <TempSvg />
         </StyledWrapSvg>
         <span className="name">Температура</span>
-        <span className="description">20° - ощущается как 17°</span>
+        <span className="description">
+          {curreantWeather?.main?.temp.toFixed()}° - ощущается как{" "}
+          {curreantWeather?.main?.feels_like.toFixed()}°
+        </span>
       </Flex>
       <Flex align="center">
         <StyledWrapSvg>
           <PressureSvg />
         </StyledWrapSvg>
         <span className="name">Давление </span>
-        <span className="description">765 мм ртутного столба - нормальное</span>
+        <span className="description">{curreantWeather?.main?.pressure} мм ртутного столба - нормальное</span>
       </Flex>
       <Flex align="center">
         <StyledWrapSvg>
@@ -83,7 +91,7 @@ const DetailsToday: React.FC = () => {
           <WindSvg />
         </StyledWrapSvg>
         <span className="name">Ветер</span>
-        <span className="description">3 м/с юго-запад - легкий ветер</span>
+        <span className="description">{curreantWeather?.wind?.speed} м/с юго-запад - легкий ветер</span>
       </Flex>
     </StyledWrapper>
   );
